@@ -1,4 +1,8 @@
 import { useState, ChangeEvent, FormEvent } from "react";
+import Task from "./components/Task";
+
+import styles from "./App.module.css";
+import "./global.css";
 
 interface Task {
   content: string;
@@ -27,8 +31,8 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <header className="todo">
+    <div className={styles.App}>
+      <header className={styles.todoHeader}>
         <h1>todo</h1>
       </header>
       <main>
@@ -42,16 +46,12 @@ function App() {
           Criar
         </button>
 
-        <div className="tasks">
+        <div className={styles.tasks}>
           Tasks
-          <div className="taskList">
-            {taskList.map((task) => {
+          <div className={styles.taskList}>
+            {taskList.map(({ content, isComplete }) => {
               return (
-                <div>
-                  <div>Checkbox status: {task.isComplete}</div>
-                  <p>{task.content}</p>
-                  <div>Delete</div>
-                </div>
+                <Task key={content} content={content} isComplete={isComplete} />
               );
             })}
           </div>
