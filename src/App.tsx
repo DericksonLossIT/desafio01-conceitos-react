@@ -3,6 +3,7 @@ import Task from "./components/Task";
 
 import styles from "./App.module.css";
 import "./global.css";
+import Header from "./components/Header";
 
 interface Task {
   content: string;
@@ -32,9 +33,7 @@ function App() {
 
   return (
     <div className={styles.App}>
-      <header className={styles.todoHeader}>
-        <h1>todo</h1>
-      </header>
+      <Header />
       <main className={styles.mainWrapper}>
         <input
           type="text"
