@@ -1,0 +1,27 @@
+.todoHeader {
+  background: var(--gray-700);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 12.5rem;
+}
+
+.mainWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tasks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tasks p {
+  display: flex;
+  flex-direction: c;
+  align-items: center;
+  justify-content: center;
+}
