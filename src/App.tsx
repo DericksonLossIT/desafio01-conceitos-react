@@ -35,7 +35,7 @@ function App() {
       <header className={styles.todoHeader}>
         <h1>todo</h1>
       </header>
-      <main>
+      <main className={styles.mainWrapper}>
         <input
           type="text"
           placeholder="Adicione uma nova tarefa"
@@ -46,8 +46,8 @@ function App() {
           Criar
         </button>
 
+        <p>Tasks</p>
         <div className={styles.tasks}>
-          Tasks
           <div className={styles.taskList}>
             {taskList.map(({ content, isComplete }) => {
               return (
