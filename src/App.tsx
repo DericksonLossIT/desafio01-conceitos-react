@@ -4,6 +4,7 @@ import Task from "./components/Task";
 import styles from "./App.module.css";
 import "./global.css";
 import Header from "./components/Header";
+import Input from "./components/Input";
 
 interface Task {
   content: string;
@@ -12,39 +13,12 @@ interface Task {
 
 function App() {
   const [taskList, setTaskList] = useState<Task[]>([]);
-  const [taskInput, setTaskInput] = useState("");
-
-  function handleCreateTask(event: FormEvent) {
-    event?.preventDefault();
-
-    const newTask: Task = {
-      content: taskInput,
-      isComplete: false,
-    };
-
-    setTaskList([...taskList, newTask]);
-    setTaskInput("");
-  }
-
-  function handleTaskInputChange(event: ChangeEvent<HTMLInputElement>) {
-    event.target.setCustomValidity("");
-    setTaskInput(event.target.value);
-  }
 
   return (
     <div className={styles.App}>
       <Header />
       <main className={styles.mainWrapper}>
-        <input
-          type="text"
-          placeholder="Adicione uma nova tarefa"
-          value={taskInput}
-          onChange={handleTaskInputChange}
-        />
-        <button type="button" onClick={handleCreateTask}>
-          Criar
-        </button>
-
+        <Input taskList={taskList} setTaskList={setTaskList} />
         <p>Tasks</p>
         <div className={styles.tasks}>
           <div className={styles.taskList}>
