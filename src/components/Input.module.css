@@ -80,3 +80,8 @@
 .inputWrapper button:active {
   opacity: 70%;
 }
+
+.inputWrapper button:disabled {
+  filter: saturate(10%);
+  cursor: not-allowed;
+}

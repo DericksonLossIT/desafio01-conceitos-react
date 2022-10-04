@@ -2,6 +2,7 @@ import { PlusCircle } from "phosphor-react";
 import React, {
   ChangeEvent,
   FormEvent,
+  InvalidEvent,
   MouseEventHandler,
   useState,
 } from "react";
@@ -33,6 +34,12 @@ const Input = ({ taskList, setTaskList }: InputProps) => {
     console.log(`Task created: ${newTask}`);
   }
 
+  function handleNewCommentInvalid(event: InvalidEvent<HTMLInputElement>) {
+    event.target.setCustomValidity("Esse campo é obrigatório!!!");
+  }
+
+  const isNewCommentEmpty = taskInput.length === 0;
+
   function handleTaskInputChange(event: ChangeEvent<HTMLInputElement>) {
     event.target.setCustomValidity("");
     setTaskInput(event.target.value);
@@ -45,8 +52,13 @@ const Input = ({ taskList, setTaskList }: InputProps) => {
         placeholder="Adicione uma nova tarefa"
         value={taskInput}
         onChange={handleTaskInputChange}
+        onInvalid={handleNewCommentInvalid}
       />
-      <button type="button" onClick={handleCreateTask}>
+      <button
+        type="button"
+        onClick={handleCreateTask}
+        disabled={isNewCommentEmpty}
+      >
         Criar
         <PlusCircle size={24} />
       </button>

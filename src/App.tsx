@@ -1,10 +1,10 @@
-import { useState, ChangeEvent, FormEvent } from "react";
+import { InvalidEvent, useState } from "react";
 import Task from "./components/Task";
+import Header from "./components/Header";
+import Input from "./components/Input";
 
 import styles from "./App.module.css";
 import "./global.css";
-import Header from "./components/Header";
-import Input from "./components/Input";
 
 interface Task {
   content: string;
